@@ -31,7 +31,7 @@ if __name__ == "__main__":
     
     st.write("2.2. User Growth Data, where we analyze the daily number of users trying Polygon for the first time.")
 
-    st.write("The temporal charts allow for selection using the context chart below them. The scatter plots also allow for selection. Also, each metric will be properly defined in each section.")
+    st.write("Additional details: The temporal charts allow for selection, using the context chart below them. The scatter plots also allow for selection. Moreover, each metric will be properly defined in each section.")
 
     st.write("This dashboard builds upon the visualizations created by [mr_nobody73](https://app.flipsidecrypto.com/dashboard/price-circulating-supply-YBc5sp), [alitaslimi](https://app.flipsidecrypto.com/dashboard/polygon-vs-harmony-l13ITg), [adriaparcerisas](https://app.flipsidecrypto.com/dashboard/active-addresses-AL7ktc), and [h4wk](https://app.flipsidecrypto.com/dashboard/new-addresses-4z1-_c).")
 
