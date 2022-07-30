@@ -131,7 +131,6 @@ if __name__ == "__main__":
     base = alt.Chart(df).encode(x='DATE:T')
     line = base.mark_line().encode(
         y=alt.Y("POLYGON:Q", axis=alt.Axis(title="Daily Avg. Transactions Per Hour")),
-        color=color3,
         tooltip = [alt.Tooltip("DATE:T",title="Date"), alt.Tooltip("POLYGON:Q",title="Avg. Transactions")])
     ch5 = line.transform_filter(selection).properties(width=900, title="Daily Avg. Transactions Per Hour")
     view5 = line.add_selection(selection).properties(
@@ -152,7 +151,6 @@ if __name__ == "__main__":
     base = alt.Chart(df).encode(x='DATE:T')
     line = base.mark_line().encode(
         y=alt.Y("Polygon (MATIC):Q", axis=alt.Axis(title="Avg. Fees Per Transaction")),
-        color=color3,
         tooltip = [alt.Tooltip("DATE",title="Date"), alt.Tooltip("Polygon (MATIC)",title="Avg. Fees (MATIC)")])
     ch7 = line.transform_filter(selection).properties(width=900, title="Avg. Fees Per Transaction")
     view7 = line.add_selection(selection).properties(
