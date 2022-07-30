@@ -49,7 +49,7 @@ if __name__ == "__main__":
     color2 = alt.condition(selection, alt.value("lightseagreen"),alt.value("lightgrey"))
 
     # CS VS PRICE
-    base = alt.Chart(df).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df).encode(x='DATE:T')
     line1 = base.mark_bar().encode(
         y=alt.Y("CURCULATING_SUPPLY:Q", axis=alt.Axis(title="Circulating Supply (MATIC)")),color=color1)
     line2 = base.mark_line().encode(y=alt.Y("MATIC_AVERAGE_PRICE:Q", axis=alt.Axis(title="MATIC Price (USD)")))
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     )
 
     # MC VS PRICE
-    base = alt.Chart(df).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df).encode(x='DATE:T')
     line1 = base.mark_bar().encode(y=alt.Y("MARKET_CAP_:Q", axis=alt.Axis(title="Market Cap (USD)")),color=color2)
     line2 = base.mark_line().encode(y=alt.Y("MATIC_AVERAGE_PRICE:Q", axis=alt.Axis(title="MATIC Price (USD)")))
     ch = alt.layer(line1, line2).resolve_scale(y = 'independent').encode(
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     )
 
     # CS VS HOLDERS
-    base = alt.Chart(df).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df).encode(x='DATE:T')
     line1 = base.mark_bar().encode(y=alt.Y("CURCULATING_SUPPLY:Q", axis=alt.Axis(title="Circulating Supply (MATIC)")), color=color1)
     line2 = base.mark_line(color="seagreen").encode(y=alt.Y("HOLDERS:Q", axis=alt.Axis(title="MATIC Holders")))
     ch = alt.layer(line1, line2).resolve_scale(y = 'independent').encode(
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     )
 
     # MC VS HOLDERS
-    base = alt.Chart(df).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df).encode(x='DATE:T')
     line1 = base.mark_bar().encode(y=alt.Y("MARKET_CAP_:Q", axis=alt.Axis(title="Market Cap (USD)")),color=color2)
     line2 = base.mark_line(color="seagreen").encode(y=alt.Y("HOLDERS:Q", axis=alt.Axis(title="MATIC Holders")))
     ch = alt.layer(line1, line2).resolve_scale(y = 'independent').encode(
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     col1, col2, col3, col4 = st.columns(4)
     color3 = alt.condition(selection, alt.value("steelblue"),alt.value("lightgrey"))
 
-    base = alt.Chart(df).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df).encode(x='DATE:T')
     line = base.mark_line().encode(
         y=alt.Y("POLYGON:Q", axis=alt.Axis(title="Daily Avg. Transactions Per Hour")),
         color=color3,
@@ -149,7 +149,7 @@ if __name__ == "__main__":
         tooltip = [alt.Tooltip("DAY_WEEK",title="Day of the Week"), alt.Tooltip("TX_HOUR",title="Hour of the Day"),alt.Tooltip("POLYGON",title="Avg. Transactions")]
     ).properties(width=900, title="Avg. Transactions Per Hour Per Day (UTC)")
     
-    base = alt.Chart(df).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df).encode(x='DATE:T')
     line = base.mark_line().encode(
         y=alt.Y("Polygon (MATIC):Q", axis=alt.Axis(title="Avg. Fees Per Transaction")),
         color=color3,
@@ -301,7 +301,7 @@ if __name__ == "__main__":
 
     color4 = alt.condition(selection, 'TYPE:N', alt.value('lightgray'))
 
-    base = alt.Chart(df_a).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df_a).encode(x='DATE:T')
     line1 = base.mark_bar().encode(y=alt.Y("CUMULATIVE_ADDRESS:Q", axis=alt.Axis(title="Cumulative New Wallets")), color=color1)
     line2 = base.mark_line(color="steelblue").encode(y=alt.Y("NEW_ADDRESS:Q", axis=alt.Axis(title="New Wallets")))
     ch = alt.layer(line1, line2).resolve_scale(y = 'independent').encode(
@@ -312,7 +312,7 @@ if __name__ == "__main__":
        height=50,
     )
     
-    base = alt.Chart(df_b).encode(x='yearmonthdate(DATE):T')
+    base = alt.Chart(df_b).encode(x='DATE:T')
     line1 = base.mark_bar().encode(y=alt.Y("CUMULATIVE_ADDRESS:Q", axis=alt.Axis(title="Cumulative New Wallets")), color=color4)
     line2 = base.mark_line(color="steelblue").encode(y=alt.Y("NEW_ADDRESS:Q", axis=alt.Axis(title="New Wallets")))
     ch = alt.layer(line1, line2).resolve_scale(y = 'independent').encode(
